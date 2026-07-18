@@ -1,0 +1,59 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <math.h>
+#include <ctype.h>
+
+#define RED "\033[1;31m"
+#define GREEN "\033[1;32m"
+#define YELLOW "\033[1;33m"
+#define BLUE "\033[1;34m"
+#define PURPLE "\033[1;35m"
+#define LIBLUE "\033[1;36m"
+#define WHITE "\033[1;39m"
+#define GRAY "\033[1;30m"
+#define RESET "\033[0m"
+
+int main(){
+    char input[50];
+    int countCMDinput = 0;
+
+    while(1){
+        printf("Verity> ");
+        fgets(input, sizeof(input), stdin); // input can take more than 1 word
+        input[strcspn(input, "\n")] = 0; // remove newline
+        
+        countCMDinput = countCMDinput + 1;
+
+        if(strcmp(input, "help") == 0)
+        {
+            printf(PURPLE"======================================\n");
+            printf(BLUE"You can type anything to Verity\n");
+            printf("This is available commands you can input:\n");
+            printf(LIBLUE"'help' : Open this help Window\n");
+            printf("'about': About this code\n");
+            printf("'exit' : Exiting the code.\n");
+            printf(PURPLE"======================================\n"RESET);
+        }
+        else if(strcmp(input, "about") == 0) {
+            printf(PURPLE"======================================\n");
+            printf(GREEN"This code is made for learning about inputing string/text,\n");
+            printf("print string/text more than 1 word in one line,\n");
+            printf("looping until do command for exit the code, and string color.\n");
+            printf(PURPLE"======================================\n"RESET);
+        }
+        else if(strcmp(input, "exit") == 0){
+            break;
+        }
+        else if(strcmp(input, "") == 0){
+            printf(YELLOW"You Entered: ");
+            printf(PURPLE"Nothing?\n"RESET);
+        }
+        else{
+        printf(YELLOW"You Entered: %s\n"RESET, input);}
+    }
+    printf(YELLOW"How much command you have inputed: %d\n"RESET, countCMDinput);
+    printf(RED"Closing the command..."RESET);
+
+    return 0;
+}

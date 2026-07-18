@@ -1,0 +1,6 @@
+alpha
+alpha.exe
+build/
+*.o
+*.out
+.vscode/
