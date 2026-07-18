@@ -16,14 +16,11 @@
 
 int main(){
     char input[50];
-    int countCMDinput = 0;
 
     while(1){
         printf("Verity> ");
         fgets(input, sizeof(input), stdin); // input can take more than 1 word
         input[strcspn(input, "\n")] = 0; // remove newline
-        
-        countCMDinput = countCMDinput + 1;
 
         if(strcmp(input, "help") == 0)
         {
@@ -37,9 +34,7 @@ int main(){
         }
         else if(strcmp(input, "about") == 0) {
             printf(PURPLE"======================================\n");
-            printf(GREEN"This code is made for learning about inputing string/text,\n");
-            printf("print string/text more than 1 word in one line,\n");
-            printf("looping until do command for exit the code, and string color.\n");
+            printf(GREEN"This code is made for learning C by creating a chat bot,\n");
             printf(PURPLE"======================================\n"RESET);
         }
         else if(strcmp(input, "exit") == 0){
@@ -52,7 +47,6 @@ int main(){
         else{
         printf(YELLOW"You Entered: %s\n"RESET, input);}
     }
-    printf(YELLOW"How much command you have inputed: %d\n"RESET, countCMDinput);
     printf(RED"Closing the command..."RESET);
 
     return 0;
